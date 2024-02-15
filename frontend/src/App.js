@@ -1,5 +1,5 @@
 import './App.css';
-import { Avatar, Box, Card, Container, ThemeProvider, Typography, useTheme } from '@mui/material';
+import { Container, ThemeProvider} from '@mui/material';
 import theme from './themes/theme';
 import BlogPost from './components/BlogPost';
 
@@ -7,7 +7,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        <BlogPost/>
+        <BlogPost name="Reiner de Guzman" date="today" body="lorem ipsum meta cardio bast"/>
       </Container>
     </ThemeProvider>
   );
