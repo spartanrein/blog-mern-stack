@@ -8,7 +8,7 @@ export const BlogPosts = (props) => {
     const Blogs = data?.map(blog => {
         const date = new Date(blog.createdAt).toLocaleString()
         return (
-                <BlogPost id={blog._id} name="Reiner de Guzman" date={date} body={blog.snippet}/>
+                <BlogPost id={blog._id.toString()} name="Reiner de Guzman" date={date} body={blog.snippet}/>
         )
     })
     return (

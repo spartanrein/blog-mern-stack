@@ -5,12 +5,14 @@ import { store } from './stores/store';
 import { Provider } from 'react-redux';
 import BlogPosts from './components/BlogPosts';
 import CreatePost from './features/CreatePost';
+import TitleBar from './components/TitleBar';
 function App() {
 
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <Container>
+        <TitleBar/>
+        <Container sx={{paddingTop:'12px'}}>
           <Stack spacing='12px'>
             <CreatePost/>
             <BlogPosts/>

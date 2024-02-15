@@ -16,8 +16,15 @@ export const blogPostApi = createApi({
                 body: {snippet:snippet}
             }),
             invalidatesTags: ['Posts']
+        }),
+        deleteBlogpost: builder.mutation({
+            query: (id) => ({
+                url: `/${id}`,
+                method: 'DELETE'
+            }),
+            invalidatesTags: ['Posts']
         })
     })
 })
 
-export const { useGetBlogPostsQuery, usePostAddBlogpostMutation } = blogPostApi
+export const { useGetBlogPostsQuery, usePostAddBlogpostMutation, useDeleteBlogpostMutation } = blogPostApi

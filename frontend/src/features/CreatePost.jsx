@@ -19,26 +19,19 @@ export const CreatePost = () => {
         <form id="createPost" onSubmit={(e) => handleSubmit(e, blogText)}>
             <Card sx={{padding:'8px'}}>
                 <Box sx={{display:'flex', alignItems:'center'}}>
-                    <Avatar
-                        alt="Reiner De Guzman"
-                        src={reinerAvatar}
-                        sx={{ width: 56, height: 56, backgroundColor:cyan[50], textAlign:"center"}}
-                    />
-                    <Box sx={{paddingLeft:'12px', width:'100%'}}>
-                        <Box paddingBottom="8px">
-                            <TextField
-                                onChange={(t) => {
-                                    setBlogText(t.target.value)
-                                }}
-                                value={blogText}
-                                id="outlined-multiline-flexible"
-                                label="What's on your mind, Reiner?"
-                                multiline
-                                maxRows={4}
-                                fullWidth
-                            />
-                        </Box>
-                    </Box> 
+                    <Box paddingY="8px" width='100%'>
+                        <TextField
+                            onChange={(t) => {
+                                setBlogText(t.target.value)
+                            }}
+                            value={blogText}
+                            id="outlined-multiline-flexible"
+                            label="What's on your mind, Reiner?"
+                            multiline
+                            maxRows={4}
+                            fullWidth
+                        />
+                    </Box>
                 </Box>
                 {blogText && <Button type="submit" id={'createPost'} variant="contained" fullWidth>Post</Button>}
             </Card>

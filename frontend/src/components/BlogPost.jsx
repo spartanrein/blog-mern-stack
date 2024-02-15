@@ -3,9 +3,14 @@ import { Avatar, Box, Card, IconButton, Typography } from '@mui/material';
 import reinerAvatar from '../assets/reiner_nobackground.png';
 import { cyan } from '@mui/material/colors';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+import { useDeleteBlogpostMutation } from '../services/blogPosts';
 
 export const BlogPost = (props) => {
     const {id, name, date, body} = props
+    const [deleteBlogpost, result] = useDeleteBlogpostMutation()
+    function handleDelete(id){
+      deleteBlogpost(id)
+    }
 
     return (
         <Card id={id} sx={{padding:'8px'}}>
@@ -22,7 +27,9 @@ export const BlogPost = (props) => {
               </Box>
             </Box>
             <Box>
-                <IconButton sx={{size:'small'}}><DeleteRoundedIcon fontSize="inherit"/></IconButton>  
+                <IconButton sx={{size:'small'}} onClick={(e) => handleDelete(id)}>
+                  <DeleteRoundedIcon fontSize="inherit"/>
+                </IconButton>  
             </Box>
           </Box>
           <Box sx={{display:'flex', paddingTop:'4px'}}>
