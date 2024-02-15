@@ -3,8 +3,12 @@ import { Avatar, Box, Card, IconButton, Typography } from '@mui/material';
 import reinerAvatar from '../assets/reiner_nobackground.png';
 import { cyan } from '@mui/material/colors';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+import { useGetBlogPostsQuery } from '../services/blogPosts';
+
 export const BlogPost = (props) => {
     const {name, date, body} = props
+    const {data, error, isLoading } = useGetBlogPostsQuery()
+
     return (
         <Card sx={{padding:'8px'}}>
           <Box sx={{display:'flex',justifyContent:"space-between", flexDirection:'row'}}>

@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const password = encodeURIComponent("BcPIYH6kvuN799re")
 const uri = `mongodb+srv://test_user:${password}@blog.dysb6v1.mongodb.net/?retryWrites=true&w=majority`;
 const blogRoutes = require('./routes/blogRoutes')
+const cors = require('cors')
 
 const db = mongoose.connect(uri)
 .then(result => {
@@ -13,6 +14,7 @@ const db = mongoose.connect(uri)
     console.log(`listening on port: ${port}`)
 })
 .catch(err => console.log(err));
+app.use(cors())
 app.use(morgan('tiny'))
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
