@@ -1,16 +1,21 @@
 import './App.css';
-import { Container, ThemeProvider} from '@mui/material';
+import { Container, Stack, ThemeProvider} from '@mui/material';
 import theme from './themes/theme';
-import BlogPost from './components/BlogPost';
 import { store } from './stores/store';
 import { Provider } from 'react-redux';
+import BlogPosts from './components/BlogPosts';
+import CreatePost from './features/CreatePost';
 function App() {
 
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <Container>
-          <BlogPost name="Reiner de Guzman" date="today" body="lorem ipsum meta cardio bast"/>
+          <Stack spacing='12px'>
+            <CreatePost/>
+            <BlogPosts/>
+          </Stack>
+          
         </Container>
       </ThemeProvider>
     </Provider>
