@@ -6,7 +6,7 @@ import { Provider, useStore } from 'react-redux';
 import BlogPosts from './components/BlogPosts';
 import CreatePost from './features/CreatePost';
 import TitleBar from './components/TitleBar';
-import SignUp from './features/SignUp';
+import Login from './features/Login';
 import { userApi } from './services/user';
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
         <TitleBar/>
         <Container sx={{paddingTop:'12px'}}>
             <Container sx={{paddingTop:{md:"80px", xs:"25%"},maxWidth: {md:"50%", xs:"100%"}}}>
-              <SignUp/>
+              <Login/>
             </Container>
           {/* <Stack spacing='12px'>
             <CreatePost/>
