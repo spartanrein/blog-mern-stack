@@ -2,11 +2,12 @@ import './App.css';
 import { Box, Container, Stack, ThemeProvider} from '@mui/material';
 import theme from './themes/theme';
 import { store } from './stores/store';
-import { Provider } from 'react-redux';
+import { Provider, useStore } from 'react-redux';
 import BlogPosts from './components/BlogPosts';
 import CreatePost from './features/CreatePost';
 import TitleBar from './components/TitleBar';
 import SignUp from './features/SignUp';
+import { userApi } from './services/user';
 function App() {
 
   return (
