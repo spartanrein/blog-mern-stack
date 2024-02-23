@@ -1,13 +1,12 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
-const port = 5000
 var morgan = require('morgan')
 const mongoose = require('mongoose')
-const password = encodeURIComponent("BcPIYH6kvuN799re")
-const uri = `mongodb+srv://test_user:${password}@blog.dysb6v1.mongodb.net/?retryWrites=true&w=majority`;
+const uri = process.env.MONGODB_URI;
 const blogRoutes = require('./routes/blogRoutes')
 const cors = require('cors')
-
+const port = process.env.PORT
 const db = mongoose.connect(uri)
 .then(result => {
     app.listen(port)
