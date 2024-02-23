@@ -5,6 +5,7 @@ var morgan = require('morgan')
 const mongoose = require('mongoose')
 const uri = process.env.MONGODB_URI;
 const blogRoutes = require('./routes/blogRoutes')
+const userRoutes = require('./routes/userRoutes')
 const cors = require('cors')
 const port = process.env.PORT
 const db = mongoose.connect(uri)
@@ -23,6 +24,7 @@ app.use((req, res, next) => {
 });
 app.use(express.json())
 app.use('/blogs/',blogRoutes)
+app.use('/user/', userRoutes)
 process.on('exit', () => {
     db.disconnect()
 })

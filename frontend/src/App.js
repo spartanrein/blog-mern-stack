@@ -17,7 +17,6 @@ function App() {
             <CreatePost/>
             <BlogPosts/>
           </Stack>
-          
         </Container>
       </ThemeProvider>
     </Provider>
