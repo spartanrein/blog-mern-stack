@@ -31,6 +31,28 @@ userSchema.statics.signup = async function(email, password){
     return user
 }
 
+userSchema.statics.login = async function(email, password){
+
+    if (!email || !password){
+        throw Error("Email and Password must not be empty")
+    }
+
+    const user = await this.findOne({ email })
+
+    if (!user){
+        throw Error("Email is invalid or does not exist")
+    }
+
+    const match = await bcrypt.compare(password, user.password)
+
+    if (!match) {
+        throw Error('Incorrect password')
+    }
+
+    return user
+
+}
+
 function validateCredentials(email, password){
     if (!email || !password){
         throw Error("Email and Password must not be empty")
